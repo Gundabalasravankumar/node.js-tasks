@@ -5,6 +5,18 @@ const app = express();
 const PORT = 3000;
 
 const MONGODB_URI = process.env.MONGODB_URI;
+const sampleUsers = [
+  {
+    name: "John",
+    email: "john@test.com",
+    age: 25
+  },
+  {
+    name: "David",
+    email: "david@test.com",
+    age: 28
+  }
+];
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -19,6 +31,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users", async (req, res) => {
+  if (!MONGODB_URI) {
+    return res.json(sampleUsers);
+  }
+
   try {
     const users = await User.find({}, { _id: 0, __v: 0 });
     res.json(users);
@@ -34,18 +50,7 @@ async function createSampleUsers() {
     const count = await User.countDocuments();
 
     if (count === 0) {
-      await User.insertMany([
-        {
-          name: "John",
-          email: "john@test.com",
-          age: 25
-        },
-        {
-          name: "David",
-          email: "david@test.com",
-          age: 28
-        }
-      ]);
+      await User.insertMany(sampleUsers);
 
       console.log("Sample users created");
     }
