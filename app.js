@@ -1,1 +1,0 @@
-require("./task2-mongodb/app");

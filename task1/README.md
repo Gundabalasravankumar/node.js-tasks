@@ -1,8 +1,9 @@
 # Task 1
 
-Run Task 1 with:
+Install dependencies and run Task 1 from this folder:
 
-```bash
+```powershell
+npm install
 npm start
 ```
 

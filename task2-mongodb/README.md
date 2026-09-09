@@ -4,10 +4,12 @@ This task uses the original Express and Mongoose users API. The `User` schema is
 
 ## Setup
 
-From the repository root, install dependencies:
+From the repository root, create a `.env` file or copy your existing one. Then run Task 2 from this folder:
 
 ```powershell
+cd task2-mongodb
 npm install
+npm start
 ```
 
 Put your MongoDB Atlas connection string in the root `.env` file:
@@ -17,20 +19,6 @@ MONGODB_URI=mongodb+srv://username:password@your-cluster.mongodb.net/node_tasks?
 ```
 
 In MongoDB Atlas, add your current IP address under **Network Access** and make sure the cluster is running.
-
-## Run
-
-From `C:\node.js`:
-
-```powershell
-node app.js
-```
-
-You can also run Task 2 directly:
-
-```powershell
-node task2-mongodb/app.js
-```
 
 ## Routes
 
